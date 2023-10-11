@@ -204,6 +204,7 @@ h6,
   color: #000;
   transition: 0.2s all ease;
   font-weight: 700;
+  margin: 3px
 }
 
 .readmore:active,
