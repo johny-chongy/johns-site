@@ -51,16 +51,16 @@
         </div>
         <div class="col-md-6 d-none d-md-block  mr-auto">
           <div class="tweet d-flex">
-            <span class="bi bi-twitter text-white mt-2 mr-3"></span>
+            <span class="bi bi-book-half text-white mt-2 mr-3"></span>
             <div>
-              <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore. <br> <a href="#">t.co/v82jsk</a></em></p>
+              <p><em>“After all, greatness is not for everybody.”<br> <a href="https://www.amazon.com/Mamba-Mentality-How-Play/dp/0374201234">Kobe Bryant</a></em></p>
             </div>
           </div>
         </div>
         <div class="col-md-4 d-none d-md-block">
           <h3>Contact Me</h3>
           <p>
-            Email: <a href="johnchong.99.17@gmail.com">johnchong.99.17@gmail.com</a>
+            Email: johnchong.99.17@gmail.com
             <br> LinkedIn: <a href="https://www.linkedin.com/in/johnchong1999/"> @johnchong1999</a>
             <br> Github: <a href="https://github.com/johny-chongy"> @johny-chongy</a>
             <br> Instagram: <a href="https://www.instagram.com/johny_chongy/"> @johny_chongy</a>
@@ -96,7 +96,8 @@
         <div class="container">
           <div class="row align-items-stretch">
             <div class="col-md-8" data-aos="fade-up">
-              <img src="assets/img/jobly.png" alt="Image" class="img-fluid">
+              <div style="position: relative; padding-bottom: 43.958333333333336%; height: 0;"><iframe src="https://www.loom.com/embed/7737993c414d45ef9ff68f0926633413?sid=e7ff82e4-9967-4fef-b402-a0e2517ac471" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+              <!-- <img src="assets/img/jobly.png" alt="Image" class="img-fluid"> -->
             </div>
             <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
               <div class="sticky-content">
@@ -111,20 +112,19 @@
                     token changes in order to abstract away redundant logic and streamline
                     API calls.
                   </p>
-
+                  <p><a href="https://hobly-jobly-chongly.surge.sh/" class="readmore">Live Demo</a></p>
+                  <p style="font-size: small;">*page may take some time to render</p>
                 </div>
-
-                <h4 class="h4 mb-3">Future Ideas</h4>
-                <ul class="list-unstyled list-line mb-5">
-                  <li>Create a company user that can make posts and post jobs</li>
-                  <li>Enable a 'follow company' feature</li>
-                  <li>Create a page that displays current user's job applications and company followings</li>
-                </ul>
-
-                <p><a href="https://hobly-jobly-chongly.surge.sh/" class="readmore">Live Demo</a></p>
-                <p style="font-size: small;">*page may take some time to render</p>
               </div>
             </div>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="100">
+            <h4 class="h4 mb-1">Future Ideas</h4>
+            <ul class="list-unstyled list-line mb-4">
+              <li>Create a company user that can make posts and post jobs</li>
+              <li>Enable a 'follow company' feature</li>
+              <li>Create a page that displays current user's job applications and company followings</li>
+            </ul>
           </div>
         </div>
     </section>
@@ -139,12 +139,44 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial">
-                  <img src="assets/img/person_1.jpg" alt="Image" class="img-fluid">
-                  <blockquote>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
-                      explicabo inventore.</p>
-                  </blockquote>
-                  <p>&mdash; Jean Hicks</p>
+                  <h4>
+                    Example of schema for job.
+                  </h4>
+                  <pre>
+                    <code>
+                      {
+                        "$schema": "http://json-schema.org/draft-07/schema#",
+                        "$id": "http://our.company.com/jobNew.schema.json",
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 50
+                          },
+                          "companyHandle": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 30
+                          },
+                          "salary": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "equity": {
+                            "type": "string",
+                            "pattern": "0|(0?\\.[0-9]+)"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                          "title",
+                          "companyHandle"
+                        ]
+                      }
+
+                    </code>
+                  </pre>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -152,34 +184,27 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial">
-                  <code>
-                    <div>
-                      useEffect(function updateGameSettings() {
-                    </div>
-                    <div class="indent-1">
-                      localStorage.getItem('settings') || '';<br>
-                      function getGameSettings() {
-                    </div>
-                    <div class="indent-2">
-                      console.log("localStorage:", localStorageSetting);
-                      <p>if (localStorageSetting === '') {
-                    </div>
-                    <div class="indent-3">
-                      localStorage.setItem('settings', JSON.stringify(DEFAULT_SETTINGS));
-                      <br>setIsLoading(false);
-                      <br>return;
-                    </div>
-                    <div class="indent-2">
+                  <h4>
+                    Created Middleware to verify authenticated and authorized users.
+                  </h4>
+                  <pre>
+                    <code>
+                      /** Middleware to use when they must provide a valid token & be user matching
+                      *  username provided as route param.
+                      *
+                      *  If not, raises Unauthorized.
+                      */
+
+                      function ensureCorrectUserOrAdmin(req, res, next) {
+                          const user = res.locals.user;
+                          const username = res.locals.user?.username;
+                          if (username && (username === req.params.username || user.isAdmin === true)) {
+                            return next();
+                          }
+                          throw new UnauthorizedError();
                       }
-                      setGameSettings(JSON.parse(localStorageSetting));<br>
-                      setIsLoading(false);
-                    </div>
-                      <br>}
-                      <br>getGameSettings();
-                      <br>}, []);
-                    </p>
-                  </code>
-                  <p>&mdash; Chris Stanworth</p>
+                    </code>
+                  </pre>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -210,7 +235,7 @@
           </div>
         </div>
         <div class="col-sm-6 social text-md-end">
-          <a href="johnchong.99.17@gmail.com"><span class="bi bi-envelope-at"></span></a>
+          <!-- <a href="johnchong.99.17@gmail.com"><span class="bi bi-envelope-at"></span></a> -->
           <a href="https://www.linkedin.com/in/johnchong1999/"><span class="bi bi-linkedin"></span></a>
           <a href="https://github.com/johny-chongy"><span class="bi bi-github"></span></a>
           <a href="https://www.instagram.com/johny_chongy/"><span class="bi bi-instagram"></span></a>
