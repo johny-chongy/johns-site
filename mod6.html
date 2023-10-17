@@ -51,9 +51,9 @@
         </div>
         <div class="col-md-6 d-none d-md-block  mr-auto">
           <div class="tweet d-flex">
-            <span class="bi bi-twitter text-white mt-2 mr-3"></span>
+            <span class="bi bi-book-half text-white mt-2 mr-3"></span>
             <div>
-              <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore. <br> <a href="#">t.co/v82jsk</a></em></p>
+              <p><em>"So, whether you eat or drink, or whatever you do, do all to the glory of God."<br> <a href="https://www.biblegateway.com/passage/?search=1+Corinthians+10&version=ESV">1 Corinthians 10:31</a></em></p>
             </div>
           </div>
         </div>
@@ -96,7 +96,8 @@
         <div class="container">
           <div class="row align-items-stretch">
             <div class="col-md-8" data-aos="fade-up">
-              <img src="assets/img/mod6.png" alt="Image" class="img-fluid">
+              <div style="position: relative; padding-bottom: 43.958333333333336%; height: 0;"><iframe src="https://www.loom.com/embed/68ee9689d5b348058d28d18988e3a673?sid=a8807857-8881-4a42-95f0-3aa09756d5ba" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+              <!-- <img src="assets/img/mod6.png" alt="Image" class="img-fluid"> -->
             </div>
             <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
               <div class="sticky-content">
@@ -111,20 +112,19 @@
                     in order to prevent inappropriate settings. Also leveraged localStorage
                     to cache simple settings 90% faster than utilizing a database.
                   </p>
-
+                  <p><a href="https://mod6y.surge.sh/" class="readmore">Live Demo</a></p>
                 </div>
-
-                <h4 class="h4 mb-3">Future Ideas</h4>
-                <ul class="list-unstyled list-line mb-5">
-                  <li>Incorporate trivia API to ask specific trivia questions</li>
-                  <li>Add a customizable timer for each turn</li>
-                  <li>Smoother transitions for card drawing</li>
-                  <li>Create an optional score tracker</li>
-                </ul>
-
-                <p><a href="https://mod6y.surge.sh/" class="readmore">Live Demo</a></p>
               </div>
             </div>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="100">
+            <h4 class="h4 mb-1">Future Ideas</h4>
+            <ul class="list-unstyled list-line mb-4">
+              <li>Incorporate trivia API to ask specific trivia questions</li>
+              <li>Add a customizable timer for each turn</li>
+              <li>Smoother transitions for card drawing</li>
+              <li>Create an optional score tracker</li>
+            </ul>
           </div>
         </div>
     </section>
@@ -139,12 +139,31 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial">
-                  <img src="assets/img/person_1.jpg" alt="Image" class="img-fluid">
-                  <blockquote>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
-                      explicabo inventore.</p>
-                  </blockquote>
-                  <p>&mdash; Jean Hicks</p>
+                  <h4>
+                    Utilizing useEffect hook to retrieve current Game State
+                  </h4>
+                  <pre>
+                    <code>
+                    useEffect(function retrieveGameState() {
+                        console.log('useEffect');
+                        async function startGame() {
+                            const localGameState = localStorage.getItem('gameState') || '';
+                            if (localGameState !== '') {
+                                const parsedGameState = JSON.parse(localGameState);
+                                const remainingStart = parsedGameState.remaining === 0 ? -1 : parsedGameState.remaining;
+                                setGameState(state => ({
+                                    ...parsedGameState,
+                                    remaining: remainingStart
+                                }));
+                                setIsLoading(false);
+                            }
+
+                            setIsLoading(false);
+                        }
+                        startGame();
+                    }, []);
+                    </code>
+                  </pre>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -152,6 +171,9 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial">
+                  <h4>
+                    Utilizing useEffect hook to retrieve Game Settings from localStorage
+                  </h4>
                   <pre>
                     <code>
                     useEffect(function updateGameSettings() {
@@ -170,7 +192,6 @@
                     }, []);
                     </code>
                   </pre>
-                  <p></p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -201,7 +222,7 @@
           </div>
         </div>
         <div class="col-sm-6 social text-md-end">
-          <a href="johnchong.99.17@gmail.com"><span class="bi bi-envelope-at"></span></a>
+          <!-- <a href="johnchong.99.17@gmail.com"><span class="bi bi-envelope-at"></span></a> -->
           <a href="https://www.linkedin.com/in/johnchong1999/"><span class="bi bi-linkedin"></span></a>
           <a href="https://github.com/johny-chongy"><span class="bi bi-github"></span></a>
           <a href="https://www.instagram.com/johny_chongy/"><span class="bi bi-instagram"></span></a>

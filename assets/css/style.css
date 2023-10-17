@@ -37,6 +37,10 @@ h6,
   padding: 7rem 0;
 }
 
+code {
+  color: #0d1e2d;
+}
+
 .filters a {
   text-decoration: none;
   color: #000;
@@ -74,18 +78,6 @@ h6,
   bottom: 0;
   height: 1px;
   background-color: #000;
-}
-
-.indent-1 {
-  margin-left: 4rem;
-}
-
-.indent-2 {
-  text-indent: 8rem;
-}
-
-.indent-3 {
-  text-indent: 12rem;
 }
 
 .item {
