@@ -152,34 +152,25 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial">
-                  <code>
-                    <div>
-                      useEffect(function updateGameSettings() {
-                    </div>
-                    <div class="indent-1">
-                      localStorage.getItem('settings') || '';<br>
-                      function getGameSettings() {
-                    </div>
-                    <div class="indent-2">
-                      console.log("localStorage:", localStorageSetting);
-                      <p>if (localStorageSetting === '') {
-                    </div>
-                    <div class="indent-3">
-                      localStorage.setItem('settings', JSON.stringify(DEFAULT_SETTINGS));
-                      <br>setIsLoading(false);
-                      <br>return;
-                    </div>
-                    <div class="indent-2">
-                      }
-                      setGameSettings(JSON.parse(localStorageSetting));<br>
-                      setIsLoading(false);
-                    </div>
-                      <br>}
-                      <br>getGameSettings();
-                      <br>}, []);
-                    </p>
-                  </code>
-                  <p>&mdash; Chris Stanworth</p>
+                  <pre>
+                    <code>
+                    useEffect(function updateGameSettings() {
+                        function getGameSettings() {
+                            const localStorageSetting = localStorage.getItem('settings') || '';
+                            console.log("localStorage:", localStorageSetting);
+                            if (localStorageSetting === '') {
+                                localStorage.setItem('settings', JSON.stringify(DEFAULT_SETTINGS));
+                                setIsLoading(false);
+                                return;
+                            }
+                            setGameSettings(JSON.parse(localStorageSetting));
+                            setIsLoading(false);
+                        }
+                        getGameSettings();
+                    }, []);
+                    </code>
+                  </pre>
+                  <p></p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
