@@ -53,7 +53,7 @@
           <div class="tweet d-flex">
             <span class="bi bi-book-half text-white mt-2 mr-3"></span>
             <div>
-              <p><em>"So, whether you eat or drink, or whatever you do, do all to the glory of God."<br> <a href="https://www.biblegateway.com/passage/?search=1+Corinthians+10&version=ESV">1 Corinthians 10:31</a></em></p>
+              <p><em>"So, whether you eat or drink, or whatever you do, do all to the glory of God."<br> <a href="https://www.biblegateway.com/passage/?search=1+Corinthians+10&version=ESV">&mdash;1 Corinthians 10:31</a></em></p>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@
                   </h4>
                   <pre>
                     <code>
-                    useEffect(function retrieveGameState() {
+                    <b>useEffect(function retrieveGameState()</b> {
                         console.log('useEffect');
                         async function startGame() {
                             const localGameState = localStorage.getItem('gameState') || '';
@@ -176,7 +176,7 @@
                   </h4>
                   <pre>
                     <code>
-                    useEffect(function updateGameSettings() {
+                    <b>useEffect(function updateGameSettings() </b>{
                         function getGameSettings() {
                             const localStorageSetting = localStorage.getItem('settings') || '';
                             console.log("localStorage:", localStorageSetting);
