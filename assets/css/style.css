@@ -37,8 +37,8 @@ h6,
   padding: 7rem 0;
 }
 
-code {
-  color: #0d1e2d;
+.code {
+  color: maroon;
 }
 
 .filters a {
@@ -405,10 +405,21 @@ embed {
   width: 100%;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 750px) {
   .custom-navbar>.container {
     padding-right: 0;
     padding-left: 0;
+  }
+  .testimonial-wrap .testimonial {
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .code {
+    font-size: 70%;
+    padding-left: 40rem;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
   }
 }
 
